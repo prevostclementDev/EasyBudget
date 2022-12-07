@@ -1,0 +1,910 @@
+.navBarCenter {
+
+    height: 100px;
+    background-color: $c-bleu;
+    @include flex;
+
+    img {
+
+        width: 120px;
+        height: 75px;
+        object-fit: cover;
+
+    }
+
+}
+
+.connectionBloc {
+
+    @include flex;
+    height: calc(100vh - 100px);
+    
+    .centerBloc {
+
+        box-shadow: 0px 0px 20px rgba(33, 74, 98, 0.2);
+        border-radius: 11px;
+        width: 60%;
+        height: 60%;
+        @include flex(column);
+
+        h1 {
+
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 45px;
+            text-align: center;
+            color: $c-bleu;
+            margin-bottom: 50px;
+
+            p {
+
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+
+            }
+
+        }
+
+    }
+
+}
+
+.toolsNavBar {
+
+    height: 100px;
+    background-color: $c-bleu;
+    @include flex(row,space-between,center);
+
+    .leftPart,.rightPart {
+
+        height: 100%;
+        margin: 0 50px;
+
+    }
+
+    .rightPart {
+
+        @include flex;
+
+        img {
+
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        p {
+
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 18px;
+            color: $c-blanc;
+            margin-left: 20px;
+
+        }
+
+    }
+
+    .leftPart {
+
+        @include flex;
+
+        & > button {
+
+            margin: 0 15px;
+
+        }
+
+    }
+
+}
+
+.baseContent {
+
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "sideBar content"; 
+    min-height: calc(100vh - 100px);
+
+    .sideBarPlace {
+
+        grid-area: sideBar;
+        background-color: $c-bleu-3;
+
+    }
+
+    .ContentPlace {
+
+        grid-area: content;
+
+    }
+
+}
+
+.sideBar {
+
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: $c-bleu-3;
+
+    @include flex(column,space-between,center);
+
+    .navButton {
+
+        padding: 10px 20px;
+
+    }
+    
+    .topPart {
+
+        width: 100%;
+
+        .menu {
+
+            margin-top: 30px;
+
+            li {
+
+                a {
+
+                    padding: 20px 0;
+                    @include flex;
+                    text-decoration: none;
+                    color: $c-blanc;
+                    font-family: $f-merriweather;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 25px;
+                    position: relative;
+
+                    background-color: #265773;
+
+                    &.first {
+
+                        &:after {
+
+                            content: "";
+                            position: absolute;
+                            width: 60%;
+                            height: 1px;
+                            background-color: $c-blanc;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+
+                        }
+
+                    }
+
+                    &.router-link-active {
+
+                        background-color: #3D7899;
+
+                    }
+
+                    &:hover {
+
+                        background-color: #3D7899;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .livretGestion {
+
+            margin-top: 18px;
+            @include flex(column);
+
+            .selecteur {
+
+                padding: 10px;
+                width: 80%;
+                position: relative;
+
+                select {
+
+                    max-width: 60%;
+
+                }
+
+            }
+
+            .secondButton {
+
+                width: 80%;
+                margin-top: 10px;
+
+                @include flex(row,space-between,center);
+
+                button {
+
+                    width: calc(40% - 5px);
+
+                    &:first-child {
+
+                        width: calc(60% - 5px);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .bottomPart {
+
+        width: 100%;
+        @include flex(column,space-between,center);
+        margin-bottom: 15px;
+        
+        button {
+
+            width: 80%;
+            margin: 5px 0;
+
+        }
+
+        & > button {
+
+            margin-top: 20px;
+
+        }
+
+        .containsButton {
+
+            width: 100%;
+            @include flex(column,space-between,center);
+
+        }
+
+    }
+
+}
+
+.transaction {
+
+    .allTransaction {
+
+        width: 100%;
+        padding: 20px 30px;
+        height: calc(100vh - 210px );
+
+    }
+
+}
+
+.topStat {
+
+    @include flex(row,space-between,flex-start);
+    padding: 15px 10px;
+    min-height: 110px;
+
+    .leftPart,.rightPart {
+
+        @include flex();
+
+    }
+
+    .leftPart {
+
+        .information {
+
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin: 5px;
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: $c-bleu;
+
+        }
+
+    }
+
+    .rightPart {
+
+        .information {
+
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin: 5px;
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: $c-bleu;
+            text-align: center;
+
+            p {
+
+                margin: 2px 0;
+
+            }
+
+        }
+
+    }
+
+}
+
+.boxBorderStyle {
+
+    width: 100%;
+    height: 100%;
+
+    .topBar {
+
+        height: 5%;
+        @include flex(row,flex-start,flex-end);
+
+        .titleBox {
+        
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: $c-bleu;
+            margin-bottom: 2px;
+    
+        }
+
+    }
+    
+    .box {
+
+        height: 95%;
+        border: 1px solid rgba(33, 74, 98, 0.3);
+        overflow-y: scroll;
+        padding: 20px;
+        @include flex(row,flex-start,flex-start);
+        flex-wrap: wrap;
+        align-content: flex-start;
+        position: relative;
+
+        /* ===== Scrollbar CSS ===== */
+        /* Firefox */
+        & {
+            scrollbar-width: thin;
+            scrollbar-color: $c-blanc $c-bleu;
+        }
+
+        /* Chrome, Edge, and Safari */
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $c-bleu;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-clip: content-box;
+            background-color: $c-blanc;
+            border-radius: 21px;
+            border: 3px solid transparent;
+        }
+
+    }
+
+}
+
+.change {
+
+    width: 100%;
+    @include flex(row,space-between,center);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+
+    .content {
+
+        @include flex();
+
+        p {
+
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: $c-bleu;
+            margin: 0 5px;
+
+        }
+
+    }
+
+    .modif {
+
+        button {
+
+            margin: 0 5px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background: transparent;
+            width: fit-content;
+
+        }
+
+    }
+
+}
+
+.globalContainer {
+
+    padding: 10px 30px;
+    height: calc(100vh - 210px );
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 48% 52%;
+    grid-template-areas: "a b" 
+                         "c c";
+
+    .boxBorderStyle {
+
+        .topBar {
+
+            height: 10%;
+
+        }
+
+        .box {
+
+            height: 90%;
+
+        }
+
+    }
+
+    .mensualitesContainers {
+
+        grid-area: a;
+
+    }
+
+    .resultMensualites {
+
+        grid-area: b;
+        @include flex(column,space-between,flex-start);
+        padding: 20px 10px 5px;
+
+        .information {
+
+            @include flex(column);
+            text-align: center;
+            width: 100%;
+            height: calc(100% / 3 - 2px);
+            box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+            border-radius: 0px 0px 9px 9px;
+
+            p {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+                color: $c-bleu;
+
+                &:first-child {
+
+                    margin-bottom: 3px;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .containsCategories {
+
+        grid-area: c;
+
+    }
+
+}
+
+.Mensualites {
+
+    width: 100%;
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    position: relative;
+
+    .content {
+
+        @include flex(row,space-between,center);
+        width: 100%;
+
+        .group {
+
+            @include flex(column,flex-start,flex-start);
+
+            p {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+                color: $c-bleu; 
+
+            }
+
+            button {
+
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+
+            }
+
+        }
+
+    }
+
+}
+
+.Categories {
+
+    width: calc(100% / 5 - 10px);
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    position: relative;
+
+    .content {
+
+        .top {
+
+            @include flex(row,space-between,flex-start);
+            margin-bottom: 15px;
+
+            button {
+
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+
+            }
+
+        }
+
+        .bottom {
+
+            .info {
+
+                @include flex(row,flex-start,center);
+
+                p {
+
+                    &:first-child {
+
+                        margin: 0 10px 0 0;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        p {
+
+            font-family: $f-merriweather;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: $c-bleu;
+            margin-bottom: 5px;
+
+        }
+
+    }
+
+}
+
+.pop_up {
+
+    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.47);
+    @include flex();
+
+    display: none;
+
+    &.active {
+
+        display: flex;
+
+    }
+
+    .centerInformation {
+
+        width: 60%;
+        height: 60%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(33, 74, 98, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        @include flex(column);
+        
+        .DeleteVerification {
+
+            color: $c-bleu;
+            text-align: center;
+            display: none;
+
+            &.active {
+
+                display: block;
+
+            }
+
+            h2 {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 36px;
+                line-height: 45px;
+                margin-bottom: 20px;
+
+            }
+
+            p {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 24px;
+                line-height: 30px;
+                max-width: 400px;
+                margin-bottom: 25px;
+
+            }
+
+            .action {
+
+                button {
+
+                    margin: 0 20px;
+
+                }
+
+            }
+
+        }
+
+        .AccountGestion {
+
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            position: relative;
+            display: none;
+
+            &.active {
+
+                display: block;
+
+            }
+
+            h2 {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 36px;
+                line-height: 45px;
+                color: $c-bleu;
+
+            }
+
+            .infoMail {
+
+                margin: 20px 0;
+                input {
+
+                    margin: 0 15px 0 0;
+
+                }
+
+            }
+
+            .separation {
+
+                margin : 20px 0;
+                width: 50%;
+                background-color: $c-bleu;
+                height: 1px;
+
+            }
+
+            .compteExistant {
+
+                .col {
+
+                    margin-top: 20px;
+                    @include flex(row,flex-start,flex-end);
+
+                    label {
+
+                        input {
+
+                            width: 100%;
+
+                        }
+
+                        &:first-child {
+
+                            margin-left: 0px;
+
+                        }
+
+                        margin: 0 20px;
+
+                    }
+
+                }
+
+            }
+
+            .bottomButton {
+
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+
+            }
+
+        }
+
+        input,select {
+
+            padding: 10px 14px;
+            background-color: rgba(160, 193, 211, 0.2);
+            color: $c-bleu;
+            border: none;
+            outline: none;
+            width: 40%;
+
+        }
+
+        label {
+
+            p {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18px;
+                color: $c-bleu;
+                margin-bottom: 5px;
+
+            }
+
+        }
+
+        .pop_up_add {
+
+            height: 100%;
+            width: 100%;
+            position: relative;
+            @include flex(column,flex-start,flex-start);
+            display: none;
+
+            &.active {
+
+                display: flex;
+
+            }
+
+            h2 {
+
+                font-family: $f-merriweather;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 36px;
+                line-height: 45px;
+                color: $c-bleu;
+                margin-bottom: 20px;
+
+            }
+
+            .champs {
+
+                @include flex(row,flex-start,flex-start);
+                width: 100%;
+                margin: 10px 0;
+
+                label {
+
+                    width: 40%;
+
+                }
+
+                input {
+
+                    width: 90%;
+                    
+
+                    &[type="checkbox"] {
+
+                        width: 20px;
+                        height: 20px;
+
+                    }
+
+                }
+
+            }
+
+            .bottomButton {
+
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+
+                button {
+
+                    &:first-child {
+
+                        margin-right: 10px;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
