@@ -1,45 +1,24 @@
-# VueJS 3 Starter
+# EasyBudget
+> Projet de partiels semestre 3.
 
-> ✨ A VueJS 3 starter to create Vue applications easily and quickly with Vue Router, Snowpack, TypeScript and SCSS
+> Temps de réalisation : 1 semaine
 
-## Architecture
-```bash
-├─ public           // static assets.
-├─ src
-│  ├─ assets        // assets such as images or font files.
-│  ├─ components    // vue components.
-│  ├─ router        // router configuration.
-│  ├─ store         // vuex modules.
-│  ├─ typings       // typescript .d.ts files.
-│  └─ pages         // pages.
-```
+>  Utilisation de l'API suivante : https://github.com/prevostclementDev/apiBudget
 
-## Installation
+<br>
 
-Use npm to install the modules
+### Description du projet
 
-```bash
-npm install
-```
+<hr>
 
-## Launch the project
+> Création d'une maquette et développement d'une application web permettant la gestion de compte bancaire. En ajoutant des comptes, des livres, dépenses, gains, et des mensualités.
 
-```bash
-npm start
-```
-Runs the app in the development mode.\
-Open **http://localhost:8080** to view it in the browser.
+<br>
 
-```bash
-npm build
-```
-Builds a static copy of your site to the `build/` folder.\
-Next, can deploy the `build/` folder ✅
+### Technologies utilisées
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+<hr>
 
-Please make sure to update tests as appropriate.
+> Le front de l'application de budget a était réalisé en vue.js. Le style du site en scss et le back(API) en PHP avec une liaison en BDD avec mysql.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
