@@ -2,17 +2,17 @@ import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyC6BlbEKYRog_AaOvko4gtx0Yx73y3ZycU",
+  apiKey: "AIzaSyAf7NjGVT11pxvkl4QRyuaTSaRFnR4i3oc",
 
-  authDomain: "easybudget-265ef.firebaseapp.com",
+  authDomain: "easybudget-fac4a.firebaseapp.com",
 
-  projectId: "easybudget-265ef",
+  projectId: "easybudget-fac4a",
 
-  storageBucket: "easybudget-265ef.appspot.com",
+  storageBucket: "easybudget-fac4a.appspot.com",
 
-  messagingSenderId: "76757596343",
+  messagingSenderId: "596944194003",
 
-  appId: "1:76757596343:web:0956f4157dba707099f532"
+  appId: "1:596944194003:web:666994853a483b37558726"
 
 };
 

@@ -62,13 +62,13 @@ const store = createStore({
       const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTA2ODAyLCJleHAiOjE2NzEwOTg4MDJ9.W4Nlz9o5yr7CQGf6rnO8zSeOUE7b9u3YUMQ5xjPRCHk";
 
       axios
-      .get('http://apieastbudget.clementprevost-portfolio.com/index.php?mail='+info.userEmail+'&userId='+info.userId+'&token='+token)
+      .get('http://localhost/2__site/__fromscratch/8_GestionnaireBancaire/API/index.php?mail='+info.userEmail+'&userId='+info.userId+'&token='+token)
       .then(response => {
 
           if ( response.data.state == true ) {
 
             axios
-            .get('http://apieastbudget.clementprevost-portfolio.com/api/'+info.userId+'/?dataType=all&token='+token)
+            .get('http://localhost/2__site/__fromscratch/8_GestionnaireBancaire/API/api/'+info.userId+'/?dataType=all&token='+token)
             .then(response => {
 
               this.state.apiState.statement = "reception reussie";
@@ -110,7 +110,7 @@ const store = createStore({
 
       const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTA2ODAyLCJleHAiOjE2NzEwOTg4MDJ9.W4Nlz9o5yr7CQGf6rnO8zSeOUE7b9u3YUMQ5xjPRCHk";
       axios
-      .get('http://apieastbudget.clementprevost-portfolio.com/index.php?mail='+this.state.user.mail+'&userId='+this.state.user.id+'&token='+token)
+      .get('http://localhost/2__site/__fromscratch/8_GestionnaireBancaire/API/index.php?mail='+this.state.user.mail+'&userId='+this.state.user.id+'&token='+token)
       .then(response => {
 
         if ( response.data.state == true ) {
@@ -124,7 +124,7 @@ const store = createStore({
           }
 
            axios
-          .get('http://apieastbudget.clementprevost-portfolio.com/api/'+this.state.user.id+'/?action='+data.action+$param+'&token='+token)
+          .get('http://localhost/2__site/__fromscratch/8_GestionnaireBancaire/API/api/'+this.state.user.id+'/?action='+data.action+$param+'&token='+token)
           .then(response => {
 
             console.log(response);
@@ -228,7 +228,7 @@ const store = createStore({
         this.state.banksData.activeLivret = this.state.banksData.activeAccount.livrets[this.state.banksData.actualsIdLivret];
         this.state.banksData.activeChange = this.state.banksData.activeLivret.change.depense.concat(this.state.banksData.activeLivret.change.gain);
         this.state.banksData.activeMensualites = this.state.banksData.activeLivret.mensualites.depense.concat(this.state.banksData.activeLivret.mensualites.gain);
-        livretBaseSolde = this.state.banksData.activeLivret.solde_base;
+        livretBaseSolde = parseFloat(this.state.banksData.activeLivret.solde_base).toFixed(2);
 
       } else {
 
@@ -255,7 +255,7 @@ const store = createStore({
 
       this.state.banksData.activeCategories = this.state.banksData.activeAccount.categories;
 
-      this.commit('calTotal',parseInt(livretBaseSolde));  
+      this.commit('calTotal',parseFloat(livretBaseSolde).toFixed(2));
 
     },
 
@@ -281,26 +281,26 @@ const store = createStore({
       this.state.banksData.activeChange.forEach(element => {
         if ( element.type_change == "gain" ) {
 
-          total += parseInt(element.montant);
-          totalGain += parseInt(element.montant);
+          total += parseFloat(element.montant);
+          totalGain += parseFloat(element.montant);
 
           if ( this.state.banksData.categoriesInformation[element.id_categorie] != undefined ) {
 
-            this.state.banksData.categoriesInformation[element.id_categorie].total += parseInt(element.montant);
-            this.state.banksData.categoriesInformation[element.id_categorie].totalGain += parseInt(element.montant);  
+            this.state.banksData.categoriesInformation[element.id_categorie].total += parseFloat(element.montant);
+            this.state.banksData.categoriesInformation[element.id_categorie].totalGain += parseFloat(element.montant);
 
           }
 
 
         } else {
 
-          total -= parseInt(element.montant);
-          totaldepense += parseInt(element.montant);
+          total -= parseFloat(element.montant);
+          totaldepense += parseFloat(element.montant);
 
           if ( this.state.banksData.categoriesInformation[element.id_categorie] != undefined ) {
             
-            this.state.banksData.categoriesInformation[element.id_categorie].total -= parseInt(element.montant);
-            this.state.banksData.categoriesInformation[element.id_categorie].totalDepense += parseInt(element.montant);
+            this.state.banksData.categoriesInformation[element.id_categorie].total -= parseFloat(element.montant);
+            this.state.banksData.categoriesInformation[element.id_categorie].totalDepense += parseFloat(element.montant);
 
           }
 
@@ -314,28 +314,28 @@ const store = createStore({
 
         if ( element.type_change == "gain" && element.actif == "1" ) {
 
-          totalPrevisionnel += parseInt(element.montant);
-          totalGainMensualites += parseInt(element.montant);
+          totalPrevisionnel += parseFloat(element.montant);
+          totalGainMensualites += parseFloat(element.montant);
 
         } else if ( element.actif == "1" ) {
 
-          totalPrevisionnel -= parseInt(element.montant);
-          totalDepenseMensualites += parseInt(element.montant);
+          totalPrevisionnel -= parseFloat(element.montant);
+          totalDepenseMensualites += parseFloat(element.montant);
 
         }
         
       });
 
-      this.state.banksData.activeTotal = total;
-      this.state.banksData.activeTotalPrevisionnel = totalPrevisionnel;
+      this.state.banksData.activeTotal = total.toFixed(2);
+      this.state.banksData.activeTotalPrevisionnel = totalPrevisionnel.toFixed(2);
 
-      this.state.banksData.activeTotalGain = totalGain;
-      this.state.banksData.activeTotalDepense = totaldepense;
-      this.state.banksData.activeBalance = totalGain - totaldepense;
+      this.state.banksData.activeTotalGain = totalGain.toFixed(2);
+      this.state.banksData.activeTotalDepense = totaldepense.toFixed(2);
+      this.state.banksData.activeBalance = totalGain.toFixed(2) - totaldepense.toFixed(2);
 
-      this.state.banksData.totalGainMensualites = totalGainMensualites;
-      this.state.banksData.totalDepenseMensualites = totalDepenseMensualites;
-      this.state.banksData.balanceMensualites = totalGainMensualites - totalDepenseMensualites;
+      this.state.banksData.totalGainMensualites = totalGainMensualites.toFixed(2);
+      this.state.banksData.totalDepenseMensualites = totalDepenseMensualites.toFixed(2);
+      this.state.banksData.balanceMensualites = totalGainMensualites.toFixed(2) - totalDepenseMensualites.toFixed(2);
 
     },
 

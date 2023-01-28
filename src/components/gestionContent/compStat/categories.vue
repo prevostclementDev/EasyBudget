@@ -5,7 +5,7 @@
             <div class="top">
                 <div class="left">
                     <p class="name">{{ data.name }}</p>
-                    <p class="price" :class="[ getStatCategorie.total == 0 ? 'yellow' : '' ,  getStatCategorie.total < 0 ? 'red' : '' , getStatCategorie.total > 0 ? 'green' : '' ]">{{getStatCategorie.total}} <span>euros</span></p>
+                    <p class="price" :class="[ getStatCategorie.total == 0 ? 'yellow' : '' ,  getStatCategorie.total < 0 ? 'red' : '' , getStatCategorie.total > 0 ? 'green' : '' ]">{{parseFloat(getStatCategorie.total).toFixed(2)}} <span>euros</span></p>
                 </div>
                 <div class="right">
                     <button @click.prevent="(event) => openPopUp(event)" :attributPopUp="'categorie|change|'+data.id"><img src="assets/production/img/picto-modification.svg" alt=""></button>
